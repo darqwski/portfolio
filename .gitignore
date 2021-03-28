@@ -2,3 +2,5 @@
 /build/bundle.js
 /build/index.html
 /build/main.bundle.js
+/.build/.env.sh
+/.build/upload.sh
