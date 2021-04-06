@@ -8,6 +8,7 @@ import App from './app';
  * Here is only proposition, that backend is producting <template> or <script> tag with parsed JSON
  * then we are just gathering this data and adding to application
  */
-const data = document.getElementById('react-data') && document.getElementById('react-data')!.innerHTML;
+const visits = document.getElementById('data-visits') && document.getElementById('data-visits')!.innerHTML;
+const questions = document.getElementById('data-question') && document.getElementById('data-question')!.innerHTML;
 
-ReactDOM.render(<App appData={data} />, document.getElementById('react-app'));
+ReactDOM.render(<App appData={{visits, questions}} />, document.getElementById('react-app'));

@@ -9,6 +9,10 @@ import {createUseStyles} from "react-jss";
 import Gallery from "@/components/gallery";
 import GitLink from "@/components/git-link";
 import ImageLink from "@/components/git-link";
+import {useAppContext} from "@/context/app-manager/context";
+import FormDataManager from "@/context/form-data-manager";
+import {FormInput} from "@/components/forms";
+import FormTextarea from "@/components/forms/form-textarea";
 /**
  * React Architecture
  * This main AppComponent is created main for adding global contexts f.e. Modal, Snackbar or Cookies management
@@ -62,7 +66,7 @@ const App: React.FC = () => {
     const experienceMultiplication = parseInt(`${(currentDate.getTime() - GAStartDate.getTime())/(1000*3600*24*30)}`);
     const sumDate = useMonthYear(experienceSum);
     const sumMultiplication = useMonthYear(experienceMultiplication);
-
+    const { appData: { visits, questions } } = useAppContext()
     return (
         <div className="porfolio">
             <div className="section-title">
@@ -71,6 +75,7 @@ const App: React.FC = () => {
             <div className="section-title blue darken-3 white-text">Projekty</div>
 
             <div className="porfolio-projects container card">
+                <p> Od początku utworzenia stronę wyświetlono {10000+Number(visits)} razy*</p>
                 <p>Poniżej przedstawione są projekty wykonane w czasie wolnym lub na zaliczenie. Kodu komercyjnego nie można pokazać ponieważ jest to wartość oddana firmie.</p>
                 <div className="project-container">
                     <h3>QuizGroup</h3>
@@ -190,9 +195,17 @@ const App: React.FC = () => {
                 <h6>{t('About me paragraph, ending')}</h6>
 
                 <p>{t('About me paragraph')}</p>
-                <img src="woodstock_image.jpeg" style={{maxWidth: '100%'}} /></div>
+                <img src="project-images/woodstock_image.jpeg" style={{maxWidth: '100%'}} /></div>
 
             <div className="section-title blue darken-3 white-text">Pytania?</div>
+            <div className="container card">
+                <form method="POST">
+                    <FormInput label="Twój nickname" name="username" />
+                    <FormTextarea label="Pytanie" name="question" />
+                    <button type="submit" className="btn btn-large blue">Wyślij</button>
+                </form>
+                <p> * - Do prawdziwej ilości dodano 10000, żeby wyglądało poważniej</p>
+            </div>
 
         </div>
     );
@@ -203,7 +216,9 @@ const AppWithContext: React.FC<IApp> = ({ appData }) => {
         <AppManager appData={appData}>
             <ModalManager>
                 <SnackBarManager>
-                    <App />
+                    <FormDataManager initialData={{}}>
+                        <App />
+                    </FormDataManager>
                 </SnackBarManager>
             </ModalManager>
         </AppManager>

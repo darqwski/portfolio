@@ -4,3 +4,5 @@
 /build/main.bundle.js
 /.build/.env.sh
 /.build/upload.sh
+/PHP/Database/DB_PASS.php
+/build/DB_PASS.php
