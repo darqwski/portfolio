@@ -5,6 +5,10 @@
     $visits = PDOController::getCommand("SELECT * FROM visit_counter")[0]['value'];
     $questionAsked = 0;
     PDOController::putCommand("UPDATE visit_counter SET `value`=`value`+1");
+    PDOController::putCommand("INSERT INTO `visits` (`visitId`, `addressIP`, `userAgent`, `time`) VALUES (NULL, :addressIP, :userAgent, NOW());",[
+            "addressIP" => $_SERVER['REMOTE_ADDR'],
+            "userAgent" => $_SERVER['HTTP_USER_AGENT']
+    ]);
     if(isset($_POST['question'])&&isset($_POST['username'])){
         PDOController::putCommand("
             INSERT INTO `user_questions` (`questionId`, `username`, `question`, `resolved`) 
@@ -33,6 +37,6 @@
 <div id="react-app"></div>
 <template id="data-visits"><?=$visits?></template>
 <template id="data-question"><?=$questionAsked?></template>
-<script src="build/bundle.js"></script><script src="build/main.bundle.js"></script>
+<script src="bundle.js"></script><script src="main.bundle.js"></script>
 </body>
 </html>
