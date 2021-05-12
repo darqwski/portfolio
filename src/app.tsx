@@ -68,49 +68,72 @@ const App: React.FC = () => {
     const sumMultiplication = useMonthYear(experienceMultiplication);
     const { appData: { visits, questions } } = useAppContext()
     return (
-        <div className="porfolio">
-            <div className="section-title">
-                Dariusz Cabała - Portfolio/CV
-            </div>
-            <div className="section-title blue darken-3 white-text">Projekty</div>
-
-            <div className="porfolio-projects container card">
-                <p> Od początku utworzenia stronę wyświetlono {10000+Number(visits)} razy*</p>
-                <p>Poniżej przedstawione są projekty wykonane w czasie wolnym lub na zaliczenie. Kodu komercyjnego nie można pokazać ponieważ jest to wartość oddana firmie.</p>
-                <div className="project-container">
-                    <h3>QuizGroup</h3>
-                    <p>Aplikacja służąca do tworzenia, udostępniania i rozwiązywania quizow. Całość zawiera zarządzanie quizami, użytkownika oraz zbieranie informacji na temat najczęściej wybranych opcji. Quizy mogą mieć dowolną tematykę i przeznaczenie. Informacje o udzielonych odpowiedziach mogą być w pełni anonimowe lub nie w zależności od wyboru użytkownika. Projekt zawiera same dane testowe, ale można się samemu zarejestrować, zrobić kilka quizów i porozsyłać do znajomych do wykonania</p>
-                    <Gallery images={quizGroupPhotos} />
-                    <p className="flex">
-                        <ImageLink link={quizGroupGitLink} name="QuizGroup" color="black" />
-                        <ImageLink link="quiz-group" icon="link" name="QuizGroup" />
-                    </p>
+        <>
+            <div className="nav-bar blue darken-4">
+                <div className="section-logo white-text">
+                    Dariusz Cabała - Portfolio/CV
                 </div>
-                <div>
+                <div className="section-sublinks">
+                    <a href="#projects">Projekty</a>
+                    <a href="#experience">Doświadczenie</a>
+                    <a href="#skills">Umiejętności</a>
+                    <a href="#about">O mnie</a>
+                    <a href="#contact">Kontakt</a>
+                </div>
+            </div>
+            <div className="portfolio">
+                <div className="section-title blue darken-3">
+                    <a name="projects" className="white-text">Ogólnie</a>
+                </div>
+                <div className="porfolio-projects container card">
+                    <p> Nie za bardzo wiem co napisać na samym początku i pewnie z tego powodu wciąż jestem w tym miejscu życia co jestem.
+                        Ogólnie to jestem programistą który wykonuje kilka własnych projektów, których nikt nigdy nie używał (oprócz osób testujących). </p>
+                    <p> Poza programowaniem nie mam większych zainteresowań. Mam psa, wciąż studiuje (maj 2021) i został mi jeszcze rok magisterki.
+                        Lubię grać w Fifę i Minecrafta, uwielbiam klocki Lego, umiem układać kostkę rubika 3x3x3 i 5x5x5. Chcę zobaczyć jeszcze dużo miejsc na świecie(Moskwa, Bajkał, Nowa Zelandia)</p>
+                    <p>Z tego mieszka</p>
+                    <p> Od początku utworzenia stronę wyświetlono <strong>{10000+Number(visits)} razy*</strong></p>
+                </div>
+                <div className="section-title blue darken-3">
+                    <a name="projects" className="white-text">Projekty</a>
+                </div>
+                <div className="porfolio-projects container card">
+                    <p>Poniżej przedstawione są projekty wykonane w czasie wolnym lub na zaliczenie. Kodu komercyjnego nie można pokazać ponieważ jest to wartość oddana firmie.</p>
                     <div className="project-container">
-                        <h3>BucketList</h3>
-                        <p>Aplikacja jest zwyczajnym blogiem-pamiętnikiem, jednak napisanym od podstaw z właśnym kreatorem stron. Dodatkowo zawiera również zarządzanie artykulami czy stronami informacyjnymi. Ogólnie w planach jest zrobienie jeszcze prezentacji oglądalności strony jak ktoś na nią w końcu wejdzie</p>
+                        <h3>QuizGroup</h3>
+                        <p>Aplikacja służąca do tworzenia, udostępniania i rozwiązywania quizow. Całość zawiera zarządzanie quizami, użytkownika oraz zbieranie informacji na temat najczęściej wybranych opcji. Quizy mogą mieć dowolną tematykę i przeznaczenie. Informacje o udzielonych odpowiedziach mogą być w pełni anonimowe lub nie w zależności od wyboru użytkownika. Projekt zawiera same dane testowe, ale można się samemu zarejestrować, zrobić kilka quizów i porozsyłać do znajomych do wykonania</p>
+                        <Gallery images={quizGroupPhotos} />
+                        <p className="flex">
+                            <ImageLink link={quizGroupGitLink} name="QuizGroup" color="black" />
+                            <ImageLink link="quiz-group" icon="link" name="QuizGroup" />
+                        </p>
                     </div>
-                    <Gallery images={bucketListPhotos} />
-                    <p className="flex">
-                        <ImageLink link={bucketListGitLink} name="BucketList" color="black" />
-                        <ImageLink link="bucket-list" icon="link" name="BucketList" />
-                    </p>
+                    <div>
+                        <div className="project-container">
+                            <h3>BucketList</h3>
+                            <p>Aplikacja jest zwyczajnym blogiem-pamiętnikiem, jednak napisanym od podstaw z właśnym kreatorem stron. Dodatkowo zawiera również zarządzanie artykulami czy stronami informacyjnymi. Ogólnie w planach jest zrobienie jeszcze prezentacji oglądalności strony jak ktoś na nią w końcu wejdzie</p>
+                        </div>
+                        <Gallery images={bucketListPhotos} />
+                        <p className="flex">
+                            <ImageLink link={bucketListGitLink} name="BucketList" color="black" />
+                            <ImageLink link="bucket-list" icon="link" name="BucketList" />
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div className="section-title blue darken-3 white-text"> Doświadczenie + Edukacja</div>
-            <div className="porfolio-lifetime container card">
-                <h5>Połączenie pracy i studiów</h5>
-                <p>Cieżko wytłumaczyć co robiłem od 2017 roku więc tutaj znajduje się przyjemny timeline, problem w opisie polega na tym że sporo okresów czasu na siebie nachodzi stąd, chciałem zaznaczyć występowanie sytuacji 2 etatów + studia w jeszcze niepandemicznej rzewistości</p>
-                <div className="experience-container">
-                    <table className="table" >
-                        <thead>
+                <div className="section-title blue darken-3 white-text">
+                    <a name="experience" className="white-text">Doświadczenie + Edukacja</a>
+                </div>
+                <div className="porfolio-lifetime container card">
+                    <h5>Połączenie pracy i studiów</h5>
+                    <p>Cieżko wytłumaczyć co robiłem od 2017 roku więc tutaj znajduje się przyjemny timeline, problem w opisie polega na tym że sporo okresów czasu na siebie nachodzi stąd, chciałem zaznaczyć występowanie sytuacji 2 etatów + studia w jeszcze niepandemicznej rzewistości</p>
+                    <div className="experience-container">
+                        <table className="table" >
+                            <thead>
                             <th>Czas</th>
                             <th>Edukacja</th>
                             <th>Praca 1</th>
                             <th>Praca 2</th>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             <tr>
                                 <td>2017 X</td>
                                 <td rowSpan={2} className="blue darken-4 white-text">Studia inżynierskie - PK</td>
@@ -160,54 +183,65 @@ const App: React.FC = () => {
                                 <td>2021 II</td>
                                 <td className="blue darken-4 white-text">Obrona inżynierki <br/>Początek magisterki</td>
                             </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h5>Sumaryczne doświadczenie</h5>
+                    <p> W zależności od tego jak bierzemy doświadczenie to mam albo <strong>{sumDate}</strong>, jeżeli liczymy równoległe pracę osobno albo <strong>{sumMultiplication}</strong> jeżeli liczymy przepracowane lata</p>
                 </div>
-                <h5>Sumaryczne doświadczenie</h5>
-                <p> W zależności od tego jak bierzemy doświadczenie to mam albo <strong>{sumDate}</strong>, jeżeli liczymy równoległe pracę osobno albo <strong>{sumMultiplication}</strong> jeżeli liczymy przepracowane lata</p>
-            </div>
-            <div className="section-title blue darken-3 white-text">Języki programowania/Frameworki</div>
-            <div className="porfolio-languages container card">
-                <p>Tą sekcję należy podzielić na trzy części</p>
-                <div className="flex">
-                    <div>
-                        <h5>Dla rekruterów</h5>
-                        <p>Kilkuletnie doświadczenie w takich technologiach jak <strong>React</strong>, <strong>Vue</strong> i <strong>Javascript</strong></p>
-                        <p>Dobre umiejętności w <strong>PHP</strong>, <strong>Node.js</strong> i <strong>SQL</strong></p>
-                        <p>Znajomość Java, Android, C#</p>
-                    </div>
-                    <div>
-                        <h5>Dla programistów</h5>
-                        <p>Tworzenie aplikacji Reactowych od początku do końca</p>
-                        <p>Tworzenie aplikacji Vue od początku do końca</p>
-                        <p>Refactor Vanilla =&gt; React, Vanilla =&gt; Vue oraz synchronizacja technologii</p>
-                        <p>Tworzenie bibliotek przy pomocy rollup'a</p>
-                        <p>Hooki, Typescript, ContextAPI, Redux, Webpack, i18n, a11y</p>
-                    </div>
-                    <div>
-                        <h5>Dla normalnych ludzi</h5>
-                        <p>Pisanie i kolorowanie stron internetowych</p>
+                <div className="section-title blue darken-3 white-text">
+                    <a name="skills" className="white-text">
+                        Języki programowania/Frameworki
+                    </a>
+                </div>
+                <div className="porfolio-languages container card">
+                    <p>Tą sekcję należy podzielić na trzy części</p>
+                    <div className="flex">
+                        <div>
+                            <h5>Dla rekruterów</h5>
+                            <p>Kilkuletnie doświadczenie w takich technologiach jak <strong>React</strong>, <strong>Vue</strong> i <strong>Javascript</strong></p>
+                            <p>Dobre umiejętności w <strong>PHP</strong>, <strong>Node.js</strong> i <strong>SQL</strong></p>
+                            <p>Znajomość Java, Android, C#</p>
+                        </div>
+                        <div>
+                            <h5>Dla programistów</h5>
+                            <p>Tworzenie aplikacji Reactowych od początku do końca</p>
+                            <p>Tworzenie aplikacji Vue od początku do końca</p>
+                            <p>Refactor Vanilla =&gt; React, Vanilla =&gt; Vue oraz synchronizacja technologii</p>
+                            <p>Tworzenie bibliotek przy pomocy rollup'a</p>
+                            <p>Hooki, Typescript, ContextAPI, Redux, Webpack, i18n, a11y</p>
+                        </div>
+                        <div>
+                            <h5>Dla normalnych ludzi</h5>
+                            <p>Pisanie i kolorowanie stron internetowych</p>
+                        </div>
                     </div>
                 </div>
+                <div className="section-title blue darken-3 white-text">
+                    <a name="about" className="white-text">
+                        O mnie
+                    </a>
+                </div>
+                <div className="porfolio-about container card">
+                    <h6>{t('About me paragraph, ending')}</h6>
+
+                    <p>{t('About me paragraph')}</p>
+                    <img src="project-images/woodstock_image.jpeg" style={{maxWidth: '100%'}} /></div>
+
+                <div className="section-title blue darken-3 white-text">
+                    <a name="contact">Pytania?</a>
+                </div>
+                <div className="container card">
+                    <form method="POST">
+                        <FormInput label="Twój nickname" name="username" />
+                        <FormTextarea label="Pytanie" name="question" />
+                        <button type="submit" className="btn btn-large blue">Wyślij</button>
+                    </form>
+                    <p> * - Do prawdziwej ilości dodano 10000, żeby wyglądało poważniej</p>
+                </div>
+
             </div>
-            <div className="section-title blue darken-3 white-text"> O mnie</div>
-            <div className="porfolio-about container card">
-                <h6>{t('About me paragraph, ending')}</h6>
-
-                <p>{t('About me paragraph')}</p>
-                <img src="project-images/woodstock_image.jpeg" style={{maxWidth: '100%'}} /></div>
-
-            <div className="section-title blue darken-3 white-text">Pytania?</div>
-            <div className="container card">
-                <form method="POST">
-                    <FormInput label="Twój nickname" name="username" />
-                    <FormTextarea label="Pytanie" name="question" />
-                    <button type="submit" className="btn btn-large blue">Wyślij</button>
-                </form>
-                <p> * - Do prawdziwej ilości dodano 10000, żeby wyglądało poważniej</p>
-            </div>
-
-        </div>
+        </>
     );
 };
 

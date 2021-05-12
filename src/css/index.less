@@ -86,3 +86,33 @@ textarea {
   padding: 0.5rem;
   height: 10rem;
 }
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+.section-sublinks {
+    display: flex;
+    align-items: center;
+    & > a {
+        color: white;
+        font-size: 1rem;
+        padding-right: 1rem;
+    }
+}
+@media(max-width: 800px) {
+  .section-sublinks {
+    display:none;
+  }
+}
+.section-logo {
+
+}
+.portfolio{
+  padding-top: 6rem;
+}
